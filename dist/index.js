@@ -7,15 +7,17 @@ import randomeInteger from "random-int";
 import gradient from 'gradient-string';
 import { createSpinner } from "nanospinner";
 import PromptSync from "prompt-sync";
-//let playerName;
-const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
+const sleep = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
 const sleep2 = (ms = 500) => new Promise((r) => setTimeout(r, ms));
+function Intro_screen() {
+    console.log(gradient('cyan', 'pink').multiline(figlet.textSync(`Welcome to the \n\nDice Roll Guessing Game !\n`), { interpolation: 'hsv' }) + '\n');
+}
+Intro_screen();
 async function welcome() {
-    const rainbowTitle = chalkAnimation.rainbow('Welcome to the Dice Roll Guessing Game \n');
+    const rainbowTitle = chalkAnimation.rainbow('This Game is Developed By Ahmed Ali Ansari PIAIC 171908');
     await sleep();
     rainbowTitle.stop();
 }
-await welcome();
 const answers = await inquirer.prompt({
     name: 'player_name',
     type: 'input',
@@ -24,8 +26,9 @@ const answers = await inquirer.prompt({
         return 'Player';
     },
 });
+await welcome();
 function winner() {
-    figlet(`Congrats , ${answers.player_name} !\n`, (err, data) => {
+    figlet(`Congrats , ${answers.player_name} !\n`, (_err, data) => {
         console.log(gradient.pastel.multiline(data) + '\n');
     });
     sleep();
@@ -40,22 +43,15 @@ do {
             type: "number",
             message: "Computer Just Rolled A dice ! whats your Guess ? "
         },
-        // {
-        //     name : "cont",
-        //     type: "confirm",
-        //     message:"want to continue yes or no ?"
-        // },
     ]);
     const spinner = createSpinner('Checking answer...').start();
     await sleep2();
     if (!(answer.guess === computer_guess)) {
         spinner.error({ text: `\nSorry Mate ! Your Guess is ${chalk.bgRed('Wrong')} ${answers.player_name}. \n${chalk.magenta(`Better luck Next Time`)}` });
-        // console.log(`Sorry Mate ! ${chalk.bgCyan(answers.player_name)} Your Guess is ${chalk.bgRed('Wrong'
-        // )}`);
+        console.log(`\nComputer Guess : ${chalk.blue(computer_guess)} Does Not Matched with Your Guess : ${chalk.blue(answer.guess)} `);
     }
     else {
         spinner.success({ text: `\nNice work ${chalk.bgCyan(answers.player_name)}. You'r Lucky ` });
-        //    console.log(`\nNice work ${chalk.bgCyan(answers.player_name)}. You'r Lucky `);
         points += 10;
         console.log(chalk.bgGreen(`\nYou Have Just earned `));
         console.log(`\nPoints :  ${chalk.yellow(points)}  🎉`);
