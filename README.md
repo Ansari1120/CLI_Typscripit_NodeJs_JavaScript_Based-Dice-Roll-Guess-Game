@@ -1,6 +1,6 @@
-This is the Source code of Node js and Typescript/javascript Based Dice ROll guessing game Runs on the Command line Interface , its package Also published at NPM Marketplace. to run calculator do : 
+# This is the Source code of Node js and Typescript/javascript Based Dice ROll guessing game Runs on the Command line Interface , its package Also published at NPM Marketplace. to run calculator do : 
 
-USED PAKCAGES : Inquirer , Chalk , Chalk-Animation , Gradient-string , Nanospinner , Prompt-sync , figlet , random-int
+***USED PAKCAGES : Inquirer , Chalk , Chalk-Animation , Gradient-string , Nanospinner , Prompt-sync , figlet , random-int***
 
 1) npm i type-script-dice-guess-game
 
@@ -46,11 +46,11 @@ npx multiply
 
 20) npm i --save-dev @types/gradient-string
 
-19)create or login your npm account
+21)create or login your npm account
 
 npm login
 
-20)publish your package
+22)publish your package
 
-21) npm publish
+23) npm publish
 
