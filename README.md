@@ -1,4 +1,4 @@
-##this is the Source code of Node js and Typescript Based Calculator Runs on the Command line Interface , its package Also published at NPM Marketplace. to run calculator do :
+##this is the Source code of Node js and Typescript/javascript Based Dice ROll guessing game Runs on the Command line Interface , its package Also published at NPM Marketplace. to run calculator do :
 
 1) npm i type-script-dice-guess-game
 
